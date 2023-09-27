@@ -101,7 +101,6 @@ class ProductLessonsListView(ListAPIView):
             user=user, lesson__products__id=product_id
         )
 
-        # Рассчитайте дату последнего просмотра для каждого урока
         queryset = queryset.annotate(last_watched=Max("end_time"))
 
         return queryset
